@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROMEO LIVE TV | تحميل التطبيق</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --bg-black: #0a0a0a;
+            --card-bg: #141414;
+            --text-gray: #b3b3b3;
+            --glass-border: rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* أنيميشن الخلفية النبضية */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.07) 0%, transparent 80%);
+            z-index: -1;
+            animation: pulseBg 10s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            from { transform: scale(1); opacity: 0.5; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 35px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .app-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            object-fit: cover;
+            border: 2px solid var(--primary-gold);
+            padding: 6px;
+            background: #000;
+            animation: float 4s ease-in-out infinite;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .app-title {
+            font-size: 30px;
+            font-weight: 900;
+            background: linear-gradient(to bottom, #fff, var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .app-status {
+            color: var(--primary-gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* زر التحميل المباشر */
+        .btn-install {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #D4AF37, #fde08d);
+            color: #000;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 18px;
+            font-weight: 900;
+            font-size: 19px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-install:hover {
+            transform: scale(1.03);
+            box-shadow: 0 18px 35px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-install::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: 0.6s;
+        }
+
+        .btn-install:hover::after {
+            left: 100%;
+        }
+
+        .file-info {
+            color: var(--text-gray);
+            font-size: 11px;
+            margin-bottom: 35px;
+            display: block;
+        }
+
+        /* قسم الوصف */
+        .description-box {
+            text-align: right;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding-top: 25px;
+        }
+
+        .description-box h3 {
+            color: var(--primary-gold);
+            font-size: 19px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .description-box p {
+            color: var(--text-gray);
+            font-size: 14.5px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* المميزات */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .feature-item {
+            font-size: 13px;
+            color: #efefef;
+            background: rgba(255,255,255,0.04);
+            padding: 10px;
+            border-radius: 12px;
+            border-right: 3px solid var(--primary-gold);
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-wrapper">
+        <img src="https://i.postimg.cc/pVnNMShf/IMG-20260331-031314.png" alt="ROMEO LIVE TV" class="app-logo">
+    </div>
+    <h1 class="app-title">ROMEO LIVE TV</h1>
+    <div class="app-status">تطبيق الترفيه المتكامل</div>
+
+    <a href="https://drive.google.com/uc?export=download&id=1spFAYHLTnFAKla-KCL_sSvEA790OhVBt" class="btn-install">
+        <span>تحميل التطبيق الآن</span>
+    </a>
+    <span class="file-info">بصيغة APK • آمن ومفحوص</span>
+
+    <div class="description-box">
+        <h3>وٌصّفُ آلَتٌطِبًيَقُ</h3>
+        <p>
+            مرحبًا بك في <strong>ROMEO LIVE TV</strong> وجهتك الأولى لعالم الترفيه. استمتع بمشاهدة أحدث الأفلام والمسلسلات الحصرية، مع بث مباشر للمباريات بجودة عالية وبدون تقطيع على جميع أجهزتك.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-item">بث مباشر سريع</div>
+            <div class="feature-item">جودة 4K عالية</div>
+            <div class="feature-item">تحديث مستمر</div>
+            <div class="feature-item">تصميم عصري</div>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 ROMEO LIVE TV
+    </footer>
+</div>
+
+<script>
+    // تأثيرات بسيطة عند الضغط
+    const btn = document.querySelector('.btn-install');
+    btn.addEventListener('mousedown', () => btn.style.transform = "scale(0.96)");
+    btn.addEventListener('mouseup', () => btn.style.transform = "scale(1.03)");
+</script>
+
+</body>
+</html>
